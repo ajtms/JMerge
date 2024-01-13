@@ -1,0 +1,16 @@
+{
+  "Bluey": {
+    "costume": {
+      "type": "granny",
+      "pattern": "stripes",
+      "size":  "too large"
+    }
+  },
+  "Bingo": {
+    "costume": {
+      "type": "granny",
+      "pattern": "birds",
+      "size": "too large"
+    }
+  }
+}

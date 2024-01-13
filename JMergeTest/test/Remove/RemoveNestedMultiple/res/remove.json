@@ -1,0 +1,8 @@
+{
+  "A big mess in the kitchen": {
+    "things on the floor": "Walk down into the object and only remove the property that matches this key"
+  },
+  "An even bigger mess in the playroom": {
+    "things on the floor": "Walk down into the object and only remove the property that matches this key"
+  }
+}

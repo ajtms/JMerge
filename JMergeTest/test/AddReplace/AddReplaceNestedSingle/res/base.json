@@ -1,0 +1,22 @@
+{
+  "Chili": {
+    "color": "red",
+    "age": 37
+  },
+  "Bandit": {
+    "color": "blue",
+    "age": 39
+  },
+  "Bingo": {
+    "color": "red",
+    "age": 4
+  },
+  "Bluey": {
+    "color": "blue",
+    "costume": {
+      "type": "granny",
+      "pattern": "flowers"
+    }
+    "age": 6
+  }
+}
