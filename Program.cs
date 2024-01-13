@@ -1,11 +1,7 @@
 ﻿using JMerge;
 using JMerge.Commandline;
-using JMerge.JSON.Algebra;
-using System.Reflection;
-using System.Text.Json;
-using System.Text.Json.Nodes;
 
-class MainTest
+class Program
 {
     public static void Main(string[] args)
     {
