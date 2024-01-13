@@ -1,0 +1,12 @@
+{
+  "actions": [
+    {
+      "type": "ADD",
+      "$ref": "res/actual.json"
+    },
+    {
+      "type": "REMOVE",
+      "$ref": "res/remove.json"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ namespace JMerge.JSON.Algebra
         // Always replace
         public override void DEFAULT(JsonNode @base, JsonNode node)
         {
-            @base.ReplaceWith(node);
+            @base.ReplaceWith(node.DeepClone());
         }
 
         protected override void _NO_MATCHING_KEY(JsonObject @base, JsonNode node)
@@ -22,10 +22,19 @@ namespace JMerge.JSON.Algebra
             @base.ReplaceWith(node.DeepClone());
         }
 
-        // Always replace the node with just the single string json node
         public override void STRING(JsonNode @base, JsonNode node)
         {
-            @base.ReplaceWith(node);
+            _REPLACE(@base, node);
+        }
+
+        public override void NUMBER(JsonNode @base, JsonNode node)
+        {
+            _REPLACE(@base, node);
+        }
+
+        public static void _REPLACE(JsonNode @base, JsonNode node)
+        {
+            Util.ReplaceNodeAtParent(@base, node);
         }
     }
 }

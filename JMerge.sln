@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34302.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JMerge", "JMerge.csproj", "{256FEF90-F643-4050-8C42-A279BF8A64EE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JMergeTest", "..\JMergeTest\JMergeTest.csproj", "{1637138A-6C19-44C8-9183-BFCC108B13DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JMergeTest", "JMergeTest\JMergeTest.csproj", "{545E48F4-2548-4AA2-88F9-E2394391C308}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{256FEF90-F643-4050-8C42-A279BF8A64EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{256FEF90-F643-4050-8C42-A279BF8A64EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{256FEF90-F643-4050-8C42-A279BF8A64EE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1637138A-6C19-44C8-9183-BFCC108B13DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1637138A-6C19-44C8-9183-BFCC108B13DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1637138A-6C19-44C8-9183-BFCC108B13DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1637138A-6C19-44C8-9183-BFCC108B13DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{545E48F4-2548-4AA2-88F9-E2394391C308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{545E48F4-2548-4AA2-88F9-E2394391C308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{545E48F4-2548-4AA2-88F9-E2394391C308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{545E48F4-2548-4AA2-88F9-E2394391C308}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

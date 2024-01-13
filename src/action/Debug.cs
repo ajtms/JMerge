@@ -46,6 +46,11 @@ namespace JMerge.JSON.Algebra
             _PrintName(node);
         }
 
+        public override void NUMBER(JsonNode @base, JsonNode node)
+        {
+            _PrintName(node);
+        }
+
         protected override void _NO_MATCHING_KEY(JsonObject @base, JsonNode node)
         {
             _PrintName(node);

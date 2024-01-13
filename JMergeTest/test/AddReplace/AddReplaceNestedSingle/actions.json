@@ -1,0 +1,12 @@
+{
+  "actions": [
+    {
+      "type": "ADD",
+      "$ref": "res/base.json"
+    },
+    {
+      "type": "ADDREPLACE",
+      "$ref": "res/replacer.json"
+    }
+  ]
+}

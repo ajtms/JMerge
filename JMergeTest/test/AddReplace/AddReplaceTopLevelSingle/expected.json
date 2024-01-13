@@ -1,0 +1,20 @@
+{
+  "Chili": {
+    "color": "red",
+    "age": 37
+  },
+  "Bandit": {
+    "color": "blue",
+    "age": 39
+  },
+  "Bingo": {
+    "royalIdentifierOfGreatImport": "Her Royal Queen-Duchess Glitterhoof",
+    "color": "rainbow",
+    "pattern": "sparkly",
+    "age": 5
+  },
+  "Bluey": {
+    "color": "blue",
+    "age": 6
+  }
+}

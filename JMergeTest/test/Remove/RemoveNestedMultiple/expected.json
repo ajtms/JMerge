@@ -1,0 +1,24 @@
+{
+  "Chili": {
+    "color": "red",
+    "age": 37
+  },
+  "Bandit": {
+    "color": "blue",
+    "age": 39
+  },
+  "A big mess in the kitchen": {
+    "eta to cleanup": "not soon enough"
+  },
+  "Bingo": {
+    "color": "red",
+    "age": 4
+  },
+  "Bluey": {
+    "color": "blue",
+    "age": 6
+  },
+  "An even bigger mess in the playroom": {
+    "eta to cleanup": "probably never"
+  }
+}

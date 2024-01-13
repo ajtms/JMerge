@@ -30,6 +30,9 @@ namespace JMerge.JSON.Algebra
                 case JsonValueKind.String:
                     action.STRING(@base, node);
                     break;
+                case JsonValueKind.Number:
+                    action.NUMBER(@base, node);
+                    break;
                 default:
                     action.DEFAULT(@base, node);
                     break;

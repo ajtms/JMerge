@@ -1,0 +1,8 @@
+{
+  "actions": [
+    {
+      "type": "ADD",
+      "$ref": "res/actual.json"
+    }
+  ]
+}

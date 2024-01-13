@@ -57,14 +57,14 @@ namespace JMerge.JSON.Algebra
             }
 
             JsonObject @base = new JsonObject();
-
             JsonNode actions;
+            string cwd = actionPlan.workingDirectory;
             actionPlan.plan.AsObject().TryGetPropertyValue("actions", out actions);
             if (actions.GetValueKind() == JsonValueKind.Array)
             {
                 foreach (JsonNode action in actions.AsArray())
                 {
-                    _Execute(action, @base);
+                    _Execute(action, @base, cwd);
                 }
             }
 
@@ -86,7 +86,7 @@ namespace JMerge.JSON.Algebra
         }
 
         // Execute an action against a JSON object
-        private static void _Execute(JsonNode action, JsonObject @base)
+        private static void _Execute(JsonNode action, JsonObject @base, string currentWorkingDirectory)
         {
             if (action is null) return;
 
@@ -101,7 +101,7 @@ namespace JMerge.JSON.Algebra
                     bool refPropertyExists = action.AsObject().TryGetPropertyValue("$ref", out @refNameNode);
                     if (refPropertyExists)
                     {
-                        string fullPathToInputDirectory = Path.Combine(Arguments.FULL_IN_PATH);
+                        string fullPathToInputDirectory = currentWorkingDirectory;
                         string pathToRefFile = Path.Combine(fullPathToInputDirectory, @refNameNode.AsValue().GetValue<string>());
                         @ref = JsonNode.Parse(File.ReadAllText(pathToRefFile));
                     }
@@ -128,6 +128,13 @@ namespace JMerge.JSON.Algebra
                                 throw new Exception("ActionPlanExecutor._Execute - missing $ref parameter or file needed to execute 'Replace' action.");
                             }
                             ActionExecutor.ExecuteAction(new Replace(), @base, @ref);
+                            break;
+                        case "addreplace":
+                            if (@ref is null)
+                            {
+                                throw new Exception("ActionPlanExecutor._Execute - missing $ref parameter or file needed to execute 'AddReplace' action.");
+                            }
+                            ActionExecutor.ExecuteAction(new AddReplace(), @base, @ref);
                             break;
                         case "parameters":
                             if (@ref is null)

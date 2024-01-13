@@ -77,6 +77,10 @@ namespace JMerge.JSON.Algebra
         {
             _TRAVERSE(@base, _);
         }
+        public override void NUMBER(JsonNode @base, JsonNode _)
+        {
+            _TRAVERSE(@base, _);
+        }
 
         public override void OBJECT(JsonNode @base, JsonObject _)
         {

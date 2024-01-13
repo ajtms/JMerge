@@ -1,0 +1,24 @@
+{
+  "actions": [
+    {
+      "type": "ADD",
+      "$ref": "res/1.json"
+    },
+    {
+      "type": "ADD",
+      "$ref": "res/2.json"
+    },
+    {
+      "type": "ADD",
+      "$ref": "res/3.json"
+    },
+    {
+      "type": "ADD",
+      "$ref": "res/4.json"
+    },
+    {
+      "type": "PARAMETERS",
+      "$ref": "res/parameters.json"
+    }
+  ]
+}

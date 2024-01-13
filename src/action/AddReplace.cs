@@ -1,40 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Nodes;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Nodes;
 
 namespace JMerge.JSON.Algebra
 { 
-    public class Add : IAction
+    public class AddReplace : IAction
     {
+        // Always replace
         public override void DEFAULT(JsonNode @base, JsonNode node)
         {
-            // Do nothing
+            @base.ReplaceWith(node.DeepClone());
         }
 
         protected override void _NO_MATCHING_KEY(JsonObject @base, JsonNode node)
         {
+            // Add it!
             var key = Util.GetNodeName(node);
             @base.Add(new KeyValuePair<string, JsonNode?>(key, node.DeepClone()));
         }
 
         protected override void _NO_MATCHING_OBJECT(JsonNode @base, JsonObject node)
         {
-            // Cannot Add an Object onto a non-Object node
+            @base.ReplaceWith(node.DeepClone());
         }
 
+        // Always replace the node with just the single string json node
         public override void STRING(JsonNode @base, JsonNode node)
         {
-            // Do nothing
+            _REPLACE(@base, node);
         }
         public override void NUMBER(JsonNode @base, JsonNode node)
         {
-            // Do nothing
+            _REPLACE(@base, node);
+        }
+
+        public static void _REPLACE(JsonNode @base, JsonNode node)
+        {
+            Util.ReplaceNodeAtParent(@base, node);
         }
     }
 }

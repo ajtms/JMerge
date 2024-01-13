@@ -1,0 +1,18 @@
+{
+  "Chili": {
+    "coat": "red with accents",
+    "age": 37
+  },
+  "Bandit": {
+    "coat": "blue with spots",
+    "age": 39
+  },
+  "Bingo": {
+    "coat": "red with accents",
+    "age": 4
+  },
+  "Bluey": {
+    "coat": "blue with spots",
+    "age": 6
+  }
+}

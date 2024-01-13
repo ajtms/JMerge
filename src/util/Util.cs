@@ -13,6 +13,15 @@ namespace JMerge
 {
     public static partial class Util
     {
+        public static void ReplaceNodeAtParent(JsonNode @base, JsonNode node)
+        {
+            string propName = @base.GetPropertyName();
+            JsonObject baseParentObj = @base.Parent.AsObject();
+            baseParentObj.Remove(propName);
+            baseParentObj.Add(propName, node.DeepClone());
+            // replace at upper level and not this level otherwise the node will not be ordered the same as the AddReplace node
+        }
+
         public static string GetNodeName(JsonNode node)
         {
             if (node is null) throw new Exception("GetNodeName: parameter 'node' cannot be null");
@@ -36,7 +45,14 @@ namespace JMerge
             }
         }
 
-        // Need a way to execute a plan and NOT save it. Just get the node object and return it.
+        public static string SerializeJsonNode(JsonNode node)
+        {
+            var options = new JsonSerializerOptions();
+            options.WriteIndented = true;
+            options.TypeInfoResolver = new DefaultJsonTypeInfoResolver();
+            return node.ToJsonString(options);
+        }
+
         public static void TryWriteJsonToFile(string fullFilePath, JsonNode node)
         {
             var options = new JsonSerializerOptions();
@@ -76,6 +92,13 @@ namespace JMerge
             }
         }
 
+        /// <summary>
+        /// Executes the actions defined in the JSON file at the given file path. Outputs the JsonNode
+        /// that is constructed after executing all of the actions.
+        /// </summary>
+        /// <param name="fullInputFilePath"></param>
+        /// <param name="completedJsonNode"></param>
+        /// <returns></returns>
         public static bool TryExecutePlanAtPath(string fullInputFilePath, out JsonNode? completedJsonNode)
         {
             Console.WriteLine($"\t{Path.GetFileName(fullInputFilePath)}");
@@ -83,8 +106,13 @@ namespace JMerge
             completedJsonNode = null;
             try
             {
-                JsonNode? actionPlan = JsonNode.Parse(File.ReadAllText(fullInputFilePath));
-                Need a function to make the action plan object
+                JsonNode? actions = JsonNode.Parse(File.ReadAllText(fullInputFilePath));
+                //Need a function to make the action plan object
+
+                ActionPlan actionPlan = new ActionPlan();
+                actionPlan.plan = actions;
+                actionPlan.workingDirectory = Path.GetDirectoryName(fullInputFilePath);
+                //Console.WriteLine($"This better be a full file path: {actionPlan.workingDirectory}"); // IT WAS :D
                 if (actionPlan is not null)
                 {
                     return TryExecuteActionPlanNode(actionPlan, out completedJsonNode);

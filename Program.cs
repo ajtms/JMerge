@@ -1,7 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-//Console.WriteLine("Hello, World!");
-
-using JMerge;
+﻿using JMerge;
 using JMerge.Commandline;
 using JMerge.JSON.Algebra;
 using System.Reflection;
