@@ -38,8 +38,8 @@ namespace JMerge
                 if (TryExecutePlanAtPath(fullInputFilePath, out completedJsonNode))
                 {
                     Console.WriteLine(completedJsonNode);
-                    //string fullOutputFilePath = GetFullOutPathFromFullInPath(fullInputFilePath);
-                    //TryWriteJsonToFile(fullOutputFilePath, completedJsonNode);
+                    string fullOutputFilePath = GetFullOutPathFromFullInPath(fullInputFilePath);
+                    TryWriteJsonToFile(fullOutputFilePath, completedJsonNode);
                 }
                
             }
@@ -55,10 +55,8 @@ namespace JMerge
 
         public static void TryWriteJsonToFile(string fullFilePath, JsonNode node)
         {
-            var options = new JsonSerializerOptions();
-            options.WriteIndented = true;
-            options.TypeInfoResolver = new DefaultJsonTypeInfoResolver();
-            //File.WriteAllText(fullPathAndFileToWriteTo, node.ToJsonString(options));
+            Console.WriteLine($"Writing to {fullFilePath}...");
+            File.WriteAllText(fullFilePath, SerializeJsonNode(node));
         }
 
         /// <summary>
